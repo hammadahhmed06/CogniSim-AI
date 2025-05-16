@@ -1,0 +1,388 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 246 76% 67%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 246 76% 67%;
+    --radius: 0.5rem;
+
+    /* Sidebar specific variables */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 246 76% 67%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 246 76% 67%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 160 84% 39%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 246 76% 67%;
+
+    /* Sidebar specific variables */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 246 76% 67%;
+  }
+}
+
+@layer components {
+  /* Layout containers */
+  .full-width-container {
+    @apply w-full max-w-full px-4 md:px-6 lg:px-8 xl:px-12;
+  }
+
+  .content-container {
+    @apply mx-auto w-full max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Auth components */
+  .auth-card {
+    @apply mx-auto w-full max-w-md shadow-lg;
+  }
+
+  .auth-container {
+    @apply flex min-h-[calc(100vh-4rem)] items-center justify-center bg-muted/20 px-4 py-12;
+  }
+
+  .auth-logo {
+    @apply mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-primary;
+  }
+
+  /* Page layout components */
+  .page-container {
+    @apply space-y-8 p-4 md:p-6 lg:p-8;
+  }
+
+  .page-header {
+    @apply flex flex-col space-y-2;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  .page-description {
+    @apply text-muted-foreground;
+  }
+
+  .page-content {
+    @apply mt-6;
+  }
+
+  /* Flex utilities */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-start {
+    @apply flex items-center justify-start;
+  }
+
+  .flex-end {
+    @apply flex items-center justify-end;
+  }
+
+  .flex-col-center {
+    @apply flex flex-col items-center justify-center;
+  }
+
+  /* Card styles */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-md hover:border-border/80;
+  }
+
+  .card-interactive {
+    @apply cursor-pointer transition-all duration-200 hover:shadow-md hover:border-border/80 active:scale-[0.99];
+  }
+
+  /* Status indicators */
+  .status-badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .status-todo {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .status-in-progress {
+    @apply bg-blue-500/20 text-blue-500;
+  }
+
+  .status-done {
+    @apply bg-green-500/20 text-green-500;
+  }
+
+  .priority-high {
+    @apply bg-red-500/20 text-red-500;
+  }
+
+  .priority-medium {
+    @apply bg-orange-500/20 text-orange-500;
+  }
+
+  .priority-low {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* Form elements */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-row {
+    @apply grid gap-4 md:grid-cols-2;
+  }
+
+  .input-icon-wrapper {
+    @apply relative;
+  }
+
+  .input-icon-left {
+    @apply absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground;
+  }
+
+  .input-with-icon-left {
+    @apply pl-8;
+  }
+
+  /* Button variations */
+  .btn-icon {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium;
+  }
+
+  .btn-with-icon {
+    @apply inline-flex items-center justify-center gap-2;
+  }
+}
+
+@layer utilities {
+  /* Responsive visibility */
+  .hide-on-mobile {
+    @apply hidden md:block;
+  }
+
+  .show-on-mobile {
+    @apply block md:hidden;
+  }
+
+  /* Text utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .truncate-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .truncate-3-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Spacing utilities */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-in-out;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-in-out;
+  }
+
+  .animate-scale {
+    animation: scale 0.2s ease-in-out;
+  }
+
+  /* Transitions */
+  .transition-fast {
+    @apply transition-all duration-150 ease-in-out;
+  }
+
+  .transition-medium {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .transition-slow {
+    @apply transition-all duration-500 ease-in-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Improve mobile responsiveness */
+  html,
+  body {
+    @apply h-full w-full overflow-x-hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-muted-foreground/30 hover:bg-muted-foreground/50;
+  }
+
+  /* Typography improvements */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-medium tracking-tight;
+  }
+
+  /* Form element improvements */
+  input,
+  textarea,
+  select {
+    @apply placeholder:text-muted-foreground/70;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid;
+  }
+}
