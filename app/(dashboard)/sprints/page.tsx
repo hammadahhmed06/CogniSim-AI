@@ -1,5 +1,5 @@
-import { SprintsView } from "@/components/sprints-view"
+import { SprintsContent } from "@/components/sprints-content"
 
 export default function SprintsPage() {
-  return <SprintsView />
+  return <SprintsContent />
 }

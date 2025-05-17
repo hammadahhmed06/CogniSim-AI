@@ -1,5 +1,5 @@
-import { EpicsView } from "@/components/epics-view"
+import { EpicsContent } from "@/components/epics-content"
 
 export default function EpicsPage() {
-  return <EpicsView />
+  return <EpicsContent />
 }

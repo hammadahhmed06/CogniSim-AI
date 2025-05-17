@@ -1,5 +1,5 @@
-import { ReportsView } from "@/components/reports-view"
+import { ReportsContent } from "@/components/reports-content"
 
 export default function ReportsPage() {
-  return <ReportsView />
+  return <ReportsContent />
 }

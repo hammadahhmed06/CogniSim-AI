@@ -1,5 +1,5 @@
-import { BacklogView } from "@/components/backlog-view"
+import { BacklogContent } from "@/components/backlog-content"
 
 export default function BacklogPage() {
-  return <BacklogView />
+  return <BacklogContent />
 }
