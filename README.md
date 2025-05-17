@@ -14,7 +14,7 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 Your project is live at:
 
-**[https://vercel.com/hammad-ahmed06s-projects/v0-design-system](https://vercel.com/hammad-ahmed06s-projects/v0-design-system)**
+**[https://v0-design-system-omega-gold.vercel.app/](https://v0-design-system-omega-gold.vercel.app/)**
 
 ## Build your app
 
