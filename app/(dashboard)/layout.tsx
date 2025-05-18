@@ -84,7 +84,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen w-full overflow-x-hidden">
         <Sidebar>
           <SidebarHeader>
             <Link href="/" className="flex items-center gap-2 px-2">
@@ -163,8 +163,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </SidebarMenu>
           </SidebarFooter>
         </Sidebar>
-        <div className="flex flex-1 flex-col">
-          <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 sm:px-6">
+        <div className="flex flex-1 flex-col w-full">
+          <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 sm:px-6 w-full">
             <SidebarTrigger />
             <div className="ml-auto flex items-center gap-2">
               <Button variant="outline" size="sm" className="hidden md:flex" asChild>
@@ -185,7 +185,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               )}
             </div>
           </header>
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full">{children}</main>
         </div>
       </div>
     </SidebarProvider>

@@ -8,9 +8,9 @@ import { CtaSection } from "@/components/cta-section"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="container z-40 bg-background">
-        <div className="flex h-20 items-center justify-between py-6">
+    <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
+      <header className="w-full bg-background">
+        <div className="container mx-auto flex h-20 items-center justify-between py-6 px-4 sm:px-6">
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2 animate-in-fade">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
@@ -53,15 +53,15 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <main className="flex-1">
+      <main className="flex-1 w-full">
         <HeroSection />
         <FeaturesSection />
         <TestimonialsSection />
         <PricingSection />
         <CtaSection />
       </main>
-      <footer className="border-t py-6 md:py-0 animate-in-fade">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+      <footer className="w-full border-t py-6 md:py-0 animate-in-fade">
+        <div className="container mx-auto flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row px-4 sm:px-6">
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <Link href="/" className="flex items-center space-x-2">
               <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary">

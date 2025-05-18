@@ -126,14 +126,14 @@ export function EpicsContent() {
   })
 
   return (
-    <div className="space-y-6 p-4 md:p-6 lg:p-8">
+    <div className="space-y-6 p-4 md:p-6 lg:p-8 w-full max-w-full">
       <div className="flex flex-col space-y-2 animate-in-fade">
         <h1 className="text-2xl font-bold tracking-tight">Epics</h1>
         <p className="text-muted-foreground">Manage large features and initiatives.</p>
       </div>
 
       <div
-        className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between animate-in-fade"
+        className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between animate-in-fade w-full"
         style={{ animationDelay: "100ms" }}
       >
         <div className="flex flex-1 items-center gap-2">
@@ -155,12 +155,12 @@ export function EpicsContent() {
       </div>
 
       <div
-        className="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-6 animate-in-fade"
+        className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 animate-in-fade w-full"
         style={{ animationDelay: "200ms" }}
       >
-        <div className="space-y-4">
+        <div className="space-y-4 w-full">
           {filteredEpics.length === 0 ? (
-            <Card>
+            <Card className="w-full">
               <CardContent className="p-6 flex flex-col items-center justify-center text-center h-[200px]">
                 <div className="space-y-2">
                   <h3 className="text-lg font-medium">No Epics Found</h3>
@@ -172,7 +172,7 @@ export function EpicsContent() {
             filteredEpics.map((epic) => (
               <Card
                 key={epic.id}
-                className={`cursor-pointer transition-all hover:shadow-md ${selectedEpic?.id === epic.id ? "border-primary" : ""}`}
+                className={`cursor-pointer transition-all hover:shadow-md ${selectedEpic?.id === epic.id ? "border-primary" : ""} w-full`}
                 onClick={() => setSelectedEpic(epic)}
               >
                 <CardHeader className="pb-2">
@@ -224,7 +224,7 @@ export function EpicsContent() {
         </div>
 
         {selectedEpic ? (
-          <Card className="h-fit animate-in-slide-right">
+          <Card className="h-fit animate-in-slide-right w-full">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <Badge variant="outline">{selectedEpic.id}</Badge>
@@ -419,7 +419,7 @@ export function EpicsContent() {
             </CardFooter>
           </Card>
         ) : (
-          <Card className="h-fit animate-in-fade">
+          <Card className="h-fit animate-in-fade w-full">
             <CardContent className="p-6 flex flex-col items-center justify-center text-center h-[400px]">
               <div className="space-y-2">
                 <h3 className="text-lg font-medium">No Epic Selected</h3>

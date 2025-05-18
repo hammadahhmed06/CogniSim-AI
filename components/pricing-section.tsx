@@ -7,7 +7,7 @@ export function PricingSection() {
     {
       name: "Starter",
       description: "Perfect for small teams getting started with agile.",
-      price: "$29",
+      price: "$19",
       features: [
         "Up to 5 team members",
         "Basic AI suggestions",
@@ -20,7 +20,7 @@ export function PricingSection() {
     {
       name: "Professional",
       description: "Ideal for growing teams that need advanced features.",
-      price: "$79",
+      price: "$49",
       features: [
         "Up to 15 team members",
         "Advanced AI suggestions",
@@ -51,7 +51,7 @@ export function PricingSection() {
 
   return (
     <section id="pricing" className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2 animate-in-fade">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Pricing</div>

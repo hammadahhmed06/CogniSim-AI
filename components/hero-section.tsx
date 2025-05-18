@@ -5,7 +5,7 @@ import { BrainCircuit } from "lucide-react"
 export function HeroSection() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4 animate-in-fade">
             <div className="space-y-2">
