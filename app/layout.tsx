@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
 
 export const metadata: Metadata = {
   title: 'CogniSim AI - Project Management with Cognitive Intelligence',
@@ -14,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="min-h-screen w-full overflow-x-hidden">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen w-full overflow-x-hidden">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }

@@ -15,7 +15,6 @@ export function PricingSection() {
         "Backlog management",
         "Basic reporting",
       ],
-      popular: false,
     },
     {
       name: "Professional",
@@ -30,7 +29,7 @@ export function PricingSection() {
         "Team capacity planning",
         "Priority support",
       ],
-      popular: true,
+      highlighted: true,
     },
     {
       name: "Enterprise",
@@ -45,7 +44,6 @@ export function PricingSection() {
         "24/7 priority support",
         "On-premise deployment option",
       ],
-      popular: false,
     },
   ]
 
@@ -65,14 +63,11 @@ export function PricingSection() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`flex flex-col animate-in-fade ${plan.popular ? "border-primary shadow-lg" : ""}`}
+              className={`flex flex-col animate-in-fade ${
+                plan.highlighted ? "border-primary shadow-lg dark:card-rainbow" : ""
+              }`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              {plan.popular && (
-                <div className="absolute -top-3 left-0 right-0 mx-auto w-fit rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
-                  Most Popular
-                </div>
-              )}
               <CardHeader className="flex flex-col space-y-1.5">
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <CardDescription>{plan.description}</CardDescription>
@@ -92,7 +87,7 @@ export function PricingSection() {
                 </ul>
               </CardContent>
               <CardFooter className="mt-auto">
-                <Button className="w-full" variant={plan.popular ? "default" : "outline"}>
+                <Button className="w-full" variant={plan.highlighted ? "default" : "outline"}>
                   {plan.price === "Custom" ? "Contact Sales" : "Get Started"}
                 </Button>
               </CardFooter>

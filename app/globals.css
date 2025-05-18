@@ -1,3 +1,4 @@
+/* tailwindcss */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,38 +50,43 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    /* Premium shiny black dark mode */
+    --background: 230 15% 6%;
+    --foreground: 220 40% 98%;
+    --card: 228 12% 8%;
+    --card-foreground: 220 40% 98%;
+    --popover: 228 12% 8%;
+    --popover-foreground: 220 40% 98%;
+    --primary: 220 60% 98%;
+    --primary-foreground: 220 10% 4%;
+    --secondary: 228 12% 12%;
+    --secondary-foreground: 220 40% 98%;
+    --muted: 228 10% 14%;
+    --muted-foreground: 240 5% 75%;
+    --accent: 227 15% 18%;
+    --accent-foreground: 220 40% 98%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 220 40% 98%;
+    --border: 228 10% 16%;
+    --input: 228 10% 14%;
+    --ring: 220 40% 79%;
+    
+    /* Chart colors with better visibility for dark mode */
+    --chart-1: 210 90% 65%;
+    --chart-2: 160 80% 50%;
+    --chart-3: 30 90% 65%;
+    --chart-4: 280 80% 70%;
+    --chart-5: 340 85% 65%;
+    
+    /* Premium sidebar styling */
+    --sidebar-background: 230 15% 8%;
+    --sidebar-foreground: 220 20% 95%;
+    --sidebar-primary: 210 90% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 228 15% 13%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 228 15% 13%;
+    --sidebar-ring: 210 90% 50%;
   }
 }
 
@@ -90,5 +96,172 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+}
+
+/* Custom animation keyframes */
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes border-glow {
+  0% {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    border-color: rgba(60, 60, 60, 0.2);
+    box-shadow: 0 0 10px rgba(60, 60, 60, 0.2);
+  }
+  100% {
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+@keyframes border-glow-dark {
+  0% {
+    border-color: rgba(30, 64, 175, 0);
+    box-shadow: 0 0 0 rgba(30, 64, 175, 0);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+  }
+  100% {
+    border-color: rgba(30, 64, 175, 0);
+    box-shadow: 0 0 0 rgba(30, 64, 175, 0);
+  }
+}
+
+@keyframes rainbow-border {
+  0% { border-color: rgba(238, 90, 36, 0.6); }
+  10% { border-color: rgba(243, 156, 18, 0.6); }
+  20% { border-color: rgba(241, 196, 15, 0.6); }
+  30% { border-color: rgba(46, 204, 113, 0.6); }
+  40% { border-color: rgba(52, 152, 219, 0.6); }
+  50% { border-color: rgba(155, 89, 182, 0.6); }
+  60% { border-color: rgba(142, 68, 173, 0.6); }
+  70% { border-color: rgba(155, 89, 182, 0.6); }
+  80% { border-color: rgba(52, 152, 219, 0.6); }
+  90% { border-color: rgba(46, 204, 113, 0.6); }
+  100% { border-color: rgba(238, 90, 36, 0.6); }
+}
+
+/* Animation utility classes */
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.animate-shine {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.4s ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease forwards;
+}
+
+/* Card hover animations */
+.card-hover-animation {
+  transition: all 0.3s ease;
+  border-width: 1px;
+}
+
+.card-hover-animation:hover {
+  transform: translateY(-3px);
+  border-width: 1.5px;
+}
+
+/* Light mode card animation */
+.card-hover-animation:hover {
+  animation: border-glow 2s infinite;
+}
+
+/* Dark mode card animations */
+.dark .dark-card-shine {
+  background: linear-gradient(145deg, hsl(228 15% 9%), hsl(228 12% 6%));
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dark .dark-card-shine:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark .card-hover-animation:hover {
+  animation: border-glow-dark 2s infinite;
+}
+
+.dark .card-rainbow:hover {
+  animation: rainbow-border 6s linear infinite;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark .button-glow:hover {
+  box-shadow: 0 0 15px hsla(var(--primary), 0.5);
+}
+
+.dark .text-gradient {
+  background: linear-gradient(to right, hsl(210 90% 60%), hsl(240 80% 70%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

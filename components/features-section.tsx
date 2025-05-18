@@ -1,4 +1,5 @@
 import { BrainCircuit, Sparkles, Zap, BarChart3, Users, Calendar } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export function FeaturesSection() {
   const features = [
@@ -6,6 +7,7 @@ export function FeaturesSection() {
       icon: BrainCircuit,
       title: "AI-Powered Planning",
       description: "Leverage cognitive intelligence to optimize sprint planning and story estimation.",
+      special: true, // This feature will get rainbow animation in dark mode
     },
     {
       icon: Sparkles,
@@ -21,6 +23,7 @@ export function FeaturesSection() {
       icon: BarChart3,
       title: "Advanced Analytics",
       description: "Gain insights into team performance and project progress with detailed reports.",
+      special: true, // This feature will get rainbow animation in dark mode
     },
     {
       icon: Users,
@@ -51,11 +54,14 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm animate-in-fade"
+              className={cn(
+                "flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm animate-in-fade card-hover-animation dark:dark-card-shine",
+                feature.special ? "dark:card-rainbow border-primary/50" : ""
+              )}
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="rounded-full bg-primary/10 p-3">
-                <feature.icon className="h-6 w-6 text-primary" />
+              <div className={cn("rounded-full p-3", feature.special ? "bg-primary/20" : "bg-primary/10")}>
+                <feature.icon className={cn("h-6 w-6", feature.special ? "text-primary animate-pulse-subtle" : "text-primary")} />
               </div>
               <h3 className="text-xl font-bold">{feature.title}</h3>
               <p className="text-center text-muted-foreground">{feature.description}</p>

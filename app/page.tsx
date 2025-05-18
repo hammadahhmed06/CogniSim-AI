@@ -1,12 +1,25 @@
+'use client'
+
 import Link from "next/link"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { HeroSection } from "@/components/hero-section"
 import { FeaturesSection } from "@/components/features-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { PricingSection } from "@/components/pricing-section"
 import { CtaSection } from "@/components/cta-section"
+import { Moon, Sun } from "lucide-react"
 
 export default function Home() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // After mounting, we can safely show the UI that depends on the theme
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <div className="flex flex-col min-h-screen w-full overflow-x-hidden">
       <header className="w-full bg-background">
@@ -40,6 +53,21 @@ export default function Home() {
             </nav>
           </div>
           <div className="flex items-center gap-2 animate-in-fade" style={{ animationDelay: "200ms" }}>
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="mr-2"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5 text-yellow-400 animate-pulse-subtle" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            )}
             <Link href="/login">
               <Button variant="ghost" size="sm" className="transition-all hover:scale-105">
                 Sign In

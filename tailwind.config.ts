@@ -83,12 +83,72 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
-  			}
+  			},
+            'pulse-subtle': {
+                '0%, 100%': {
+                    opacity: '1'
+                },
+                '50%': {
+                    opacity: '0.85'
+                }
+            },
+            'shine': {
+                to: {
+                    backgroundPosition: '200% center'
+                }
+            },
+            'float': {
+                '0%, 100%': {
+                    transform: 'translateY(0)'
+                },
+                '50%': {
+                    transform: 'translateY(-5px)'
+                }
+            },
+            'slide-in-right': {
+                from: {
+                    transform: 'translateX(30px)',
+                    opacity: '0'
+                },
+                to: {
+                    transform: 'translateX(0)',
+                    opacity: '1'
+                }
+            },
+            'fade-up': {
+                from: {
+                    transform: 'translateY(10px)',
+                    opacity: '0'
+                },
+                to: {
+                    transform: 'translateY(0)',
+                    opacity: '1'
+                }
+            }
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+            'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
+            'shine': 'shine 4s linear infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'slide-in': 'slide-in-right 0.4s ease forwards',
+            'fade-up': 'fade-up 0.4s ease forwards'
+  		},
+        boxShadow: {
+            'dark-sm': '0 2px 8px rgba(0, 0, 0, 0.2)',
+            'dark-md': '0 5px 15px rgba(0, 0, 0, 0.2)',
+            'dark-lg': '0 8px 25px rgba(0, 0, 0, 0.3)',
+            'glow': '0 0 15px hsla(var(--primary), 0.5)'
+        },
+        backgroundImage: {
+            'gradient-dark': 'linear-gradient(145deg, hsl(228 15% 9%), hsl(228 12% 6%))',
+            'shine-effect': 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%)',
+            'text-gradient': 'linear-gradient(to right, hsl(210 90% 60%), hsl(240 80% 70%))'
+        },
+        transitionDuration: {
+            '400': '400ms',
+        }
   	}
   },
   plugins: [require("tailwindcss-animate")],

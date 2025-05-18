@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -16,6 +17,7 @@ export function TestimonialsSection() {
       content:
         "The cognitive intelligence behind CogniSim AI is impressive. It's like having an extra team member who specializes in agile optimization.",
       avatar: "MC",
+      special: true, // This testimonial will get rainbow animation in dark mode
     },
     {
       name: "Emily Rodriguez",
@@ -40,17 +42,24 @@ export function TestimonialsSection() {
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 pt-12">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="animate-in-fade" style={{ animationDelay: `${index * 100}ms` }}>
+            <Card 
+              key={index} 
+              className={cn(
+                "animate-in-fade card-hover-animation", 
+                testimonial.special ? "dark:card-rainbow" : ""
+              )} 
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
               <CardContent className="p-6">
                 <div className="flex flex-col items-center space-y-4">
-                  <Avatar className="h-12 w-12">
+                  <Avatar className={cn("h-12 w-12", testimonial.special ? "ring-2 ring-primary dark:animate-pulse-subtle" : "")}>
                     <AvatarImage src={`/placeholder.svg?height=48&width=48`} alt={testimonial.name} />
                     <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                   </Avatar>
                   <div className="space-y-2 text-center">
                     <p className="text-muted-foreground">"{testimonial.content}"</p>
                     <div>
-                      <h3 className="font-semibold">{testimonial.name}</h3>
+                      <h3 className={cn("font-semibold", testimonial.special ? "dark:text-gradient" : "")}>{testimonial.name}</h3>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                     </div>
                   </div>

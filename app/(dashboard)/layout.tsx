@@ -84,11 +84,11 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full overflow-x-hidden">
-        <Sidebar>
+      <div className="flex min-h-screen w-full overflow-x-hidden transition-colors duration-300">
+        <Sidebar className="dark:bg-gradient-dark">
           <SidebarHeader>
-            <Link href="/" className="flex items-center gap-2 px-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary">
+            <Link href="/" className="flex items-center gap-2 px-2 dark:text-gradient">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary dark:animate-pulse-subtle">
                 <span className="text-sm font-bold text-primary-foreground">C</span>
               </div>
               <span className="font-bold">CogniSim AI</span>
@@ -96,11 +96,18 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              {navigation.map((item) => (
+              {navigation.map((item, index) => (
                 <SidebarMenuItem key={item.name}>
-                  <SidebarMenuButton asChild isActive={item.current}>
-                    <Link href={item.href}>
-                      <item.icon className="h-5 w-5" />
+                  <SidebarMenuButton 
+                    asChild 
+                    isActive={item.current}
+                    className="dark:transition-all dark:duration-300 dark:hover:bg-accent/20"
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                    }}
+                  >
+                    <Link href={item.href} className={item.current ? "dark:text-sidebar-primary" : ""}>
+                      <item.icon className={`h-5 w-5 ${item.current ? "dark:text-sidebar-primary" : ""}`} />
                       <span>{item.name}</span>
                     </Link>
                   </SidebarMenuButton>
@@ -113,7 +120,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               <SidebarMenuItem>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <SidebarMenuButton>
+                    <SidebarMenuButton className="dark:hover:bg-accent/20">
                       <Avatar className="h-6 w-6">
                         <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
                         <AvatarFallback>JD</AvatarFallback>
@@ -122,7 +129,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                       <ChevronDown className="ml-auto h-4 w-4" />
                     </SidebarMenuButton>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuContent align="end" className="w-56 dark:dark-card-shine">
                     <DropdownMenuItem asChild>
                       <Link href="/profile" className="flex items-center">
                         <User2 className="mr-2 h-4 w-4" />
@@ -141,7 +148,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     >
                       {mounted && theme === "dark" ? (
                         <>
-                          <Sun className="mr-2 h-4 w-4" />
+                          <Sun className="mr-2 h-4 w-4 dark:text-yellow-400 dark:animate-pulse-subtle" />
                           <span>Light Mode</span>
                         </>
                       ) : (
@@ -164,7 +171,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </SidebarFooter>
         </Sidebar>
         <div className="flex flex-1 flex-col w-full">
-          <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 sm:px-6 w-full">
+          <header className="sticky top-0 z-30 flex h-16 items-center gap-4 border-b bg-background px-4 sm:px-6 w-full backdrop-blur-sm dark:bg-background/80 transition-all duration-300">
             <SidebarTrigger />
             <div className="ml-auto flex items-center gap-2">
               <Button variant="outline" size="sm" className="hidden md:flex" asChild>
@@ -176,16 +183,20 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="hidden md:flex"
+                  className="hidden md:flex dark:hover:bg-accent/20"
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 >
-                  {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                  {theme === "dark" ? (
+                    <Sun className="h-5 w-5 text-yellow-400 animate-pulse-subtle" />
+                  ) : (
+                    <Moon className="h-5 w-5" />
+                  )}
                   <span className="sr-only">Toggle theme</span>
                 </Button>
               )}
             </div>
           </header>
-          <main className="flex-1 w-full">{children}</main>
+          <main className="flex-1 w-full transition-opacity duration-300">{children}</main>
         </div>
       </div>
     </SidebarProvider>
